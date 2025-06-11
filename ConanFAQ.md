@@ -1,5 +1,7 @@
 # Conan FAQ
 
+## Misc
+
 ### How can a recipe validate options for other (e.g. upstream) recipes?
 Dependencies can be accessed in **certain methods only** via the [self.dependencies attribute](https://docs.conan.io/2/reference/conanfile/methods/generate.html#conan-conanfile-model-dependencies). For example, see the [validate method](https://docs.conan.io/2/reference/conanfile/methods/validate.html)
 

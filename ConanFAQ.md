@@ -12,6 +12,7 @@ There are several options:
 The [tools.build:defines configuration](https://docs.conan.io/2/reference/config_files/global_conf.html) can be used (typically with a [configuration data operator](https://docs.conan.io/2/reference/config_files/global_conf.html#configuration-data-types)). For example:
 
 ```
+[conf]
 tools.build:defines+=["GLM_FORCE_CTOR_INIT"]
 ```
 
@@ -39,6 +40,16 @@ def package_info(self):
 ```
 
 > **Puzzle:** Syntax for specifying values? 
+
+### How to set CMake variables?
+
+#### Via profiles/command-line
+CMake variables can be set via the [tools.cmake.cmaketoolchain:extra_variables](https://docs.conan.io/2/reference/tools/cmake/cmaketoolchain.html) attribut. For example:
+
+```
+[conf]
+tools.cmake.cmaketoolchain:extra_variables={"MY_VAR": "MyValue"}
+```
 
 ### Using Ninja
 Relevant Conan documentation: [Ninja example](https://docs.conan.io/2/examples/tools/cmake/cmake_toolchain/use_different_toolchain_generator.html)
@@ -105,3 +116,17 @@ Considerations:
 >
 > Note that launches two additional nested shells (ew...)
 
+## Conan Center Index
+
+### How to locally create a recipe?
+  * Clone the CCI repository to a local folder. If working with a fork, use the fork's URL and (if necessary) checkout the branch with the recipe:
+    ```
+      git clone https://github.com/proceduralnoisy/conan-center-index
+      cd conan-center-index
+      git checkout -t origin/add-geometrictools`
+    ```
+  * Use Conan to create the package and make it available in the local Conan cache:
+    ```
+    cd recipes/geometrictoolsengine/all
+    conan create . --version=8.0
+    ```

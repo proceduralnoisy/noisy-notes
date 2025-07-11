@@ -68,7 +68,27 @@ cmake/3.31.7
 ninja/1.12.1
 ```
 
-## Alternative toolchains
+## Toolchain-specivic
+
+### How to use an older MSVC compiler without installing an older Visual Studio version?
+
+First, use the Visual Studio installer to install the desired MSVC build tools:
+* Launch Visual Studio Installer and click "Modify"
+* Open the "Individual components" tab
+* Search for "MSVC"
+* Install the desired versions (you probably want the x64/x86 build tools variant)
+
+Modify the Conan profile to specify *both* the compiler version and the Visual Studio version. This example below specifies the VS2019 compiler version (`192`) and Visual Studio 2022 (`17`)
+```
+[settings]
+...
+compiler.version=192
+...
+
+[conf]
+```
+
+> **Tip:** Autodetect can be used to determine both the default compiler and version if we want to make the two explicit in autodetected profiles. See [this issue](https://github.com/conan-io/conan/issues/14487).
 
 ### How to use the Intel compiler with Conan?
 Relevant Conan documentation: [conan.tools.intel](https://docs.conan.io/2/reference/tools/intel.html#intelcc).

@@ -68,6 +68,14 @@ cmake/3.31.7
 ninja/1.12.1
 ```
 
+### How to visualize the dependency graph of a package?
+> **Reference:** [conan graph info](https://docs.conan.io/2/reference/commands/graph/info.html)
+
+Example:
+```
+conan graph info . --format=html > graph.html
+```
+
 ## Toolchain-specivic
 
 ### How to use an older MSVC compiler without installing an older Visual Studio version?

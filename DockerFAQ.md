@@ -2,6 +2,9 @@
 
 ## Basic Usage
 
+### Obtaining an image (command line)
+Run `docker pull IMAGE_NAME:TAG`
+
 ### Obtaining an image (docker.desktop)
 Use the search bar at the top to find an image of interest.
 
